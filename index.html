@@ -1,75 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Computer Recycling | Hard Drive Destruction</title>
-  <meta name="description" content="Secure computer and electronics recycling. Hard drive destruction. Serving Bay Area businesses.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; color:#222; line-height:1.6; }
-    header { background:#0a6e4e; color:#fff; padding:40px 20px; text-align:center; }
-    section { padding:40px 20px; max-width:900px; margin:auto; }
-    h1, h2 { margin-bottom:10px; }
-    ul { padding-left:20px; }
-    .btn {
-      display:inline-block; margin-top:15px;
-      background:#0a6e4e; color:#fff;
-      padding:12px 20px; text-decoration:none; border-radius:4px;
-    }
-    footer { background:#f4f4f4; text-align:center; padding:20px; font-size:14px; }
-  </style>
+<meta charset="UTF-8">
+<title>Gornostalev Recycling | Secure Computer Recycling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, sans-serif; margin:0; color:#222; line-height:1.6; }
+header { background:#0a6e4e; color:#fff; padding:50px 20px; text-align:center; }
+header h1 { margin:0; font-size:2.5em; }
+header p { font-size:1.2em; }
+section { padding:40px 20px; max-width:900px; margin:auto; }
+h2 { color:#0a6e4e; margin-bottom:10px; }
+ul { padding-left:20px; }
+.btn { display:inline-block; margin-top:15px; background:#0a6e4e; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; }
+form { display:flex; flex-direction:column; max-width:500px; margin:auto; }
+form input, form textarea { margin-bottom:10px; padding:10px; border:1px solid #ccc; border-radius:4px; }
+form button { background:#0a6e4e; color:#fff; padding:12px; border:none; border-radius:4px; cursor:pointer; }
+footer { background:#f4f4f4; text-align:center; padding:20px; font-size:14px; margin-top:40px; }
+.success-msg { color: green; text-align:center; margin-bottom:15px; }
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Secure Computer Recycling</h1>
-  <p>Responsible Computer Recycling & Data Destruction</p>
-  <a class="btn" href="#contact">Request Recycling</a>
+<h1>Gornostalev Recycling</h1>
+<p>Secure Computer Recycling & Data Destruction | Bay Area</p>
+<a class="btn" href="#contact">Request Recycling</a>
 </header>
 
 <section>
-  <h2>What We Do</h2>
-  <p>
-    We help businesses and individuals safely recycle laptops, desktops, and servers while destroying sensitive data.
-  </p>
-  <ul>
-    <li>Laptop & Desktop Recycling</li>
-    <li>Hard Drive Destruction</li>
-    <li>Secure Data Erasure</li>
-    <li>Pickup Available (Bay Area)</li>
-  </ul>
+<h2>Our Services</h2>
+<ul>
+<li>Computer & Laptop Recycling</li>
+<li>Hard Drive & Data Destruction</li>
+<li>E-Waste Recycling for Businesses and Individuals</li>
+<li>Pickup Available in Bay Area</li>
+</ul>
 </section>
 
 <section>
-  <h2>Why Choose Us</h2>
-  <ul>
-    <li>Focus on data security</li>
-    <li>Careful and responsible handling</li>
-    <li>Clear and honest communication</li>
-    <li>Experience with electronic equipment</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Who We Serve</h2>
-  <p>
-    Small and medium businesses, offices, schools, non-profits,
-    and individuals in the Bay Area.
-  </p>
+<h2>Why Choose Us</h2>
+<ul>
+<li>Experience in electronics handling</li>
+<li>Focus on data security</li>
+<li>Careful and responsible disposal</li>
+<li>Clear communication and honest service</li>
+</ul>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
-  <p>
-    📍 Bay Area, California<br>
-    📧 Email: <b>gornostalev.recycling@gmail.com</b><br>
-    📞 Phone: <b>(415) 740-5298</b>
-  </p>
+<h2>Request Recycling</h2>
+<p>Fill out the form below and we will contact you:</p>
+<div class="success-msg" id="success-msg"></div>
+<form id="recycling-form">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="company" placeholder="Company / Organization">
+<input type="email" name="email" placeholder="Email" required>
+<input type="tel" name="phone" placeholder="Phone" required>
+<textarea name="message" placeholder="What do you want to recycle?" rows="4" required></textarea>
+<button type="submit">Send Request</button>
+</form>
 </section>
 
 <footer>
-  © 2025 Computer Recycling. All rights reserved.
+📍 Bay Area, California | 📧 gornostalev.recycling@gmail.com | 📞 (xxx) xxx-xxxx<br>
+© 2025 Gornostalev Recycling. All rights reserved.
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function() { emailjs.init("fBzJ0FcrB6y8-waBm"); })(); // вставь сюда API Key / User ID
+
+document.getElementById('recycling-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const form = event.target;
+    emailjs.sendForm('service_jl72k3i', 'template_jl787tp', form) // вставь сюда Service ID и Template ID
+      .then(() => {
+        document.getElementById('success-msg').innerText = "Thank you! Your request has been sent.";
+        form.reset();
+      }, (err) => {
+        alert("Oops... something went wrong. " + JSON.stringify(err));
+      });
+});
+</script>
 
 </body>
 </html>
