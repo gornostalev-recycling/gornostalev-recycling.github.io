@@ -25,7 +25,7 @@ header {
 }
 
 .logo {
-  height: 150px;  
+  height: 180px;   /* ЛОГОТИП БОЛЬШЕ */
   width: auto;
 }
 
@@ -136,4 +136,58 @@ footer {
 </section>
 
 <section>
-  <h2>Why
+  <h2>Why Choose Us</h2>
+  <ul>
+    <li>Experience in electronics handling</li>
+    <li>Focus on data security</li>
+    <li>Careful and responsible disposal</li>
+    <li>Clear communication and honest service</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Request Recycling</h2>
+  <p>Fill out the form below and we will contact you:</p>
+
+  <div class="success-msg" id="success-msg"></div>
+
+  <form id="recycling-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="text" name="company" placeholder="Company / Organization">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone" required>
+    <textarea name="message" placeholder="What do you want to recycle? For example: Laptops - 3 pcs." rows="4" required></textarea>
+    <button type="submit">Send Request</button>
+  </form>
+</section>
+
+<footer>
+  📍 Bay Area, California |
+  📧 gornostalev.recycling@gmail.com |
+  📞 (415) 740-5298<br>
+  © 2025 Gornostalev Recycling. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function() {
+  emailjs.init("fBzJ0FcrB6y8-waBm");
+})();
+
+document.getElementById('recycling-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const form = event.target;
+
+  emailjs.sendForm('service_jl72k3i', 'template_jl787tp', form)
+    .then(() => {
+      document.getElementById('success-msg').innerText =
+        "Thank you! Your request has been sent.";
+      form.reset();
+    }, (err) => {
+      alert("Oops... something went wrong. " + JSON.stringify(err));
+    });
+});
+</script>
+
+</body>
+</html>
