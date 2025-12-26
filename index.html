@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Gornostalev Recycling | Secure Computer Recycling</title>
+<title>Computer Recycling | Hard Drive Destruction</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body { font-family: Arial, sans-serif; margin:0; color:#222; line-height:1.6; }
@@ -63,18 +63,18 @@ footer { background:#f4f4f4; text-align:center; padding:20px; font-size:14px; ma
 </section>
 
 <footer>
-📍 Bay Area, California | 📧 gornostalev.recycling@gmail.com | 📞 (xxx) xxx-xxxx<br>
+📍 Bay Area, California | 📧 gornostalev.recycling@gmail.com | 📞 (415) 740-5298<br>
 © 2025 Gornostalev Recycling. All rights reserved.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-(function() { emailjs.init("fBzJ0FcrB6y8-waBm"); })(); // вставь сюда API Key / User ID
+(function() { emailjs.init("fBzJ0FcrB6y8-waBm"); })(); 
 
 document.getElementById('recycling-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const form = event.target;
-    emailjs.sendForm('service_jl72k3i', 'template_jl787tp', form) // вставь сюда Service ID и Template ID
+    emailjs.sendForm('service_jl72k3i', 'template_jl787tp', form)
       .then(() => {
         document.getElementById('success-msg').innerText = "Thank you! Your request has been sent.";
         form.reset();
